@@ -29,6 +29,6 @@ Route::get('/admin/users/destroy/{id}', [App\Http\Controllers\AdminController::c
 
 
 Route::get('/finance', [App\Http\Controllers\FinanceController::class, 'index'])->name('finance');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); 
 Route::get('/support', [App\Http\Controllers\SupportController::class, 'index'])->name('support');
 Route::get('/service', [App\Http\Controllers\ServiceController::class, 'index'])->name('service');
