@@ -50,12 +50,16 @@ class User extends Authenticatable
 
     public function isAdmin() {
         return $this->role()->where('role', 'admin')->exists();
-     }
+    }
 
     public function isFinance() {
         return $this->role()->where('role', 'finance')->exists();
-     }
+    }
     public function isService() {
         return $this->role()->where('role', 'service')->exists();
-     }
+    }
+
+    public function isSupport() {
+        return $this->role()->where('role', 'support')->exists();
+    }
 }

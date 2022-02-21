@@ -15,7 +15,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view('profile',[
+        return view('profile.index',[
             'user' => User::findOrFail(Auth::user()->id)
         ]); 
     }

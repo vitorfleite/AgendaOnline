@@ -39,33 +39,38 @@
                     @auth
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('home') }}">{{ 'Home' }} </a>
+                            <a class="nav-link" href="{{ route('home.index') }}">{{ 'Home' }} </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('calendar.index') }}">{{ __('Calendar') }}</a>
                         </li>
                         @if(Auth::user()->isAdmin())
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('admin') }}">{{ __('Administrator') }}</a>
+                            <a class="nav-link" href="{{ route('admin.index') }}">{{ __('Administrator') }}</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('finance') }}">{{ __('Finance') }}</a>
+                            <a class="nav-link" href="{{ route('finance.index') }}">{{ __('Finance') }}</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('service') }}">{{ __('Service Provider') }}</a>
+                            <a class="nav-link" href="{{ route('service.index') }}">{{ __('Service Provider') }}</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('support') }}#">{{ __('Customer Service') }}</a>
+                            <a class="nav-link" href="{{ route('support.index') }}#">{{ __('Customer Service') }}</a>
                         </li>
                         @endif
                         @if(Auth::user()->isFinance())
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('finance') }}">{{ __('Finance') }}</a>
+                            <a class="nav-link" href="{{ route('finance.index') }}">{{ __('Finance') }}</a>
                         </li>
                         @endif
                         @if(Auth::user()->isService())
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('service') }}">{{ __('Service Provider') }}</a>
+                            <a class="nav-link" href="{{ route('service.index') }}">{{ __('Service Provider') }}</a>
                         </li>
+                        @endif
+                        @if(Auth::user()->isSupport())
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('support') }}#">{{ __('Customer Service') }}</a>
+                            <a class="nav-link" href="{{ route('support.index') }}#">{{ __('Customer Service') }}</a>
                         </li>
                         @endif
                         

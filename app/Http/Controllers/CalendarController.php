@@ -4,13 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class SupportController extends Controller
+class CalendarController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +13,7 @@ class SupportController extends Controller
      */
     public function index()
     {
-        return view('support.index');
+        return view('calendar.index');
     }
 
     /**

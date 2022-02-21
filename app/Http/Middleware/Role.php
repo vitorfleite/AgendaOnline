@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 use Illuminate\Http\Request;
 
 class Role
@@ -14,11 +15,48 @@ class Role
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, $roles)
     {
-        if (! $request->user()->isAdmin()) {
-            return redirect('home');
+
+        $user = Auth::user();
+
+        if ($roles == 'admin')
+        {
+            if ($user->isAdmin()) {
+                return $next($request);
+            }
         }
-        return $next($request);
+
+        if ($roles == 'finance')
+        {
+            if ($user->isAdmin()) {
+                return $next($request);
+            }
+            if ($user->isFinance()) {
+                return $next($request);
+            }
+        }
+        
+        if ($roles == 'service')
+        {
+            if ($user->isAdmin()) {
+                return $next($request);
+            }
+            if ($user->isService()) {
+                return $next($request);
+            }
+        }
+
+        if ($roles == 'support')
+        {
+            if ($user->isAdmin()) {
+                return $next($request);
+            }
+            if ($user->isFinance()) {
+                return $next($request);
+            }
+        }
+
+        return redirect('home');
     }
 }
